@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\PostsController;
+use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,39 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get("/", [MainController::class, 'index'])->name("main_index");
+Route::get('/products', [ProductsController::class, 'index'])->name("products_index");
+Route::get('/products/{id}', [ProductsController::class, 'show'])->where('id', '[0-9]+$')->name("products_show");
+Route::get('/products/edit', [ProductsController::class, 'edit'])->name("products_edit");
+Route::get("/posts", [PostsController::class, 'index'])->name("posts_index");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
